@@ -29,6 +29,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.rsocket.messaging.RSocketStrategiesCustomizer;
 import org.springframework.boot.rsocket.server.RSocketServerBootstrap;
 import org.springframework.boot.rsocket.server.RSocketServerFactory;
+import org.springframework.cloud.gateway.rsocket.actuate.GatewayRSocketActuatorRegistrar;
+import org.springframework.cloud.gateway.rsocket.actuate.GatwayRSocketActuator;
 import org.springframework.cloud.gateway.rsocket.core.GatewayRSocketFactory;
 import org.springframework.cloud.gateway.rsocket.core.GatewayServerRSocketFactoryCustomizer;
 import org.springframework.cloud.gateway.rsocket.core.PendingRequestRSocketFactory;
@@ -49,6 +51,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.messaging.rsocket.DefaultMetadataExtractor;
 import org.springframework.messaging.rsocket.MetadataExtractor;
 import org.springframework.messaging.rsocket.RSocketStrategies;
+import org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler;
 
 import static org.springframework.cloud.gateway.rsocket.support.Forwarding.FORWARDING_MIME_TYPE;
 import static org.springframework.cloud.gateway.rsocket.support.RouteSetup.ROUTE_SETUP_MIME_TYPE;
@@ -164,7 +167,6 @@ public class GatewayRSocketAutoConfiguration {
 		};
 	}
 
-/*
 	@Bean
 	public GatewayRSocketActuatorRegistrar gatewayRSocketActuatorRegistrar(
 			RoutingTable routingTable, RSocketMessageHandler messageHandler,
@@ -177,6 +179,5 @@ public class GatewayRSocketAutoConfiguration {
 	public GatwayRSocketActuator gatwayRSocketActuator() {
 		return new GatwayRSocketActuator();
 	}
-*/
 
 }
